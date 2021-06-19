@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock - PURE CSS - Zia Codes</title>
+
+    <!--==================== CSS FILE ====================-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--==================== METAs ====================-->
+    <meta name="description" content="A Custom Analog Clock">
+    <meta name="author" content="Zia Codes">
+    <meta name="keywords" content="Custom, Analog, Clock, ZiaCodes">
+
+</head>
+
+<body>
+
+    <!--==================== MAIN ====================-->
+    <div class="wrapper">
+        <div class="clock">
+
+            <!--==================== CLOCK CIRCLES ====================-->
+            <div class="clock__circles">
+                <div class="clock__circles__item"></div>
+                <div class="clock__circles__item"></div>
+                <div class="clock__circles__item"></div>
+                <div class="clock__circles__item">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </div>
+
+            <!--==================== CONTAINER ====================-->
+            <div class="container">
+                <div class="clock__indicators">
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                    <div class="clock__indicators__item"></div>
+                </div>
+
+                <!--==================== CLOCK TIME ====================-->
+                <div class="clock__time">
+                    <div class="clock__time__seconds" id="seconds"></div>
+                    <div class="clock__time__minutes" id="minutes"></div>
+                    <div class="clock__time__hours" id="hours"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--==================== SCRIPT FOR CLOCK TIMING ====================-->
+    <script>
+        const deg = 6;
+        const hr = document.querySelector('#hours');
+        const mn = document.querySelector('#minutes');
+        const sc = document.querySelector('#seconds');
+
+        setInterval(() => {
+
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        });
+
+    </script>
+
+</body>
+
+</html>
